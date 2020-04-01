@@ -1123,9 +1123,7 @@ async function removeAllColumnLabels(client, owner, repo, issue_number) {
     const allColumnLabels = await client.issues.listLabelsForRepo({
         owner,
         repo
-    });
-
-    console.log(allColumnLabels);
+    }).data;
 
     return Promise.all(
         allColumnLabels.map((label) => {

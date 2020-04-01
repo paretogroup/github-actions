@@ -11,7 +11,7 @@ function getAllColumnLabelNames(client, owner, repo){
     return client.issues.listLabelsForRepo({
         owner,
         repo
-    }).map(label => label.name);
+    }).data.map(label => label.name);
 }
 
 async function addLabelToIssue(client, owner, repo, issueId, label, allColumnLabels) {
