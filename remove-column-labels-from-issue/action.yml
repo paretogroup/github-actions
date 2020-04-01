@@ -1,6 +1,6 @@
-name: 'Remove label from issue'
+name: 'Remove column labels from issue'
 
-description: 'Removes a label from an issue'
+description: 'Removes all column labels from an issue'
 
 inputs:
   token:
@@ -14,9 +14,6 @@ inputs:
     required: true
   repository_name:
     description: 'The repository name'
-    required: true
-  label:
-    description: 'The label to be removed'
     required: true
 
 runs:

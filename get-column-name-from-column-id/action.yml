@@ -1,0 +1,19 @@
+name: 'Get column name from column id'
+
+description: 'Gets the column name from the column id'
+
+inputs:
+  token:
+    description: 'The token'
+    required: true
+  column_id:
+    description: 'The column id'
+    required: true
+
+outputs:
+  column_name:
+    description: 'The column name'
+
+runs:
+  using: 'node12'
+  main: 'dist/index.js'

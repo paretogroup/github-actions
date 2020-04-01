@@ -1,6 +1,6 @@
-# Remove label from issue
+# Remove column labels from issue
 
-Removes a label from an issue
+Removes all column labels from an issue
 
 ## Inputs
 
@@ -19,7 +19,3 @@ Removes a label from an issue
 ### `repository_name`
 
 **Required** The repository name.
-
-### `label`
-
-**Required** The label to be removed.
