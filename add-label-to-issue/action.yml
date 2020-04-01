@@ -1,0 +1,24 @@
+name: 'Add label to issue'
+
+description: 'Adds a label to an issue'
+
+inputs:
+  token:
+    description: 'The token'
+    required: true
+  issue-id:
+    description: 'The issue id'
+    required: true
+  organization-name:
+    description: 'The organization name'
+    required: true
+  repository-name:
+    description: 'The repository name'
+    required: true
+  label:
+    description: 'The label to be added'
+    required: true
+
+runs:
+  using: 'node12'
+  main: 'index.js'
