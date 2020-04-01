@@ -1143,14 +1143,13 @@ async function run() {
         const client = new github.GitHub(token);
         const card = await client.projects.getCard({ card_id: parseInt(cardId) });
 
-        console.log(card);
-
         const issueId = extractIssueIdFromCardContentUrl(
             card.data.content_url,
             organizationName,
             repositoryName
         );
 
+        console.log(issueId);
         core.setOutput('issue_id', issueId.toString());
     }
     catch (error) {
