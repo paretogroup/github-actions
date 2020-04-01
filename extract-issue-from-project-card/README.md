@@ -1,21 +1,27 @@
-# Hello world javascript action
+# Extract issue from project card action
 
-This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
+This action extracts the issue id from a project card content url obtained by its id
 
 ## Inputs
 
-### `who-to-greet`
+### `token`
 
-**Required** The name of the person to greet. Default `"World"`.
+**Required** The token.
+
+### `project-card-id`
+
+**Required** The project card id.
+
+### `organization-name`
+
+**Required** The organization name.
+
+### `repository-name`
+
+**Required** The repository name.
 
 ## Outputs
 
-### `time`
+### `issue-id`
 
-The time we greeted you.
-
-## Example usage
-
-uses: github-actions/extract-issue-from-project-card@v1
-with:
-  who-to-greet: 'Mona the Octocat'
+The issue id.
