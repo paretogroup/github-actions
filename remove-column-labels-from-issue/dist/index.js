@@ -1125,6 +1125,8 @@ async function removeAllColumnLabels(client, owner, repo, issue_number) {
         repo
     });
 
+    console.log(allColumnLabels);
+
     return Promise.all(
         allColumnLabels.map((label) => {
             client.issues.removeLabel({
