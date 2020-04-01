@@ -1127,7 +1127,6 @@ async function run() {
         const label = core.getInput('label',  { required: true });
 
         const client = new github.GitHub(token);
-        const card = await client.projects.getCard({ card_id: cardId.toString() });
 
         await client.issues.addLabels({
             owner: organizationName,
