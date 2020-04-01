@@ -8,15 +8,15 @@ Removes a label from an issue
 
 **Required** The token.
 
-### `issue-id`
+### `issue_id`
 
 **Required** The issue id.
 
-### `organization-name`
+### `organization_name`
 
 **Required** The organization name.
 
-### `repository-name`
+### `repository_name`
 
 **Required** The repository name.
 

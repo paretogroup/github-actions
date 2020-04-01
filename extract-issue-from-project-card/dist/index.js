@@ -1136,9 +1136,9 @@ function extractIssueIdFromCardContentUrl(
 async function run() {
     try {
         const token = core.getInput('token', { required: true });
-        const cardId = core.getInput('project-card-id',  { required: true });
-        const organizationName = core.getInput('organization-name',  { required: true });
-        const repositoryName = core.getInput('repository-name',  { required: true });
+        const cardId = core.getInput('project_card_id',  { required: true });
+        const organizationName = core.getInput('organization_name',  { required: true });
+        const repositoryName = core.getInput('repository_name',  { required: true });
 
         const client = new github.GitHub(token);
         const card = await client.projects.getCard({ card_id: cardId.toString() });
@@ -1149,7 +1149,7 @@ async function run() {
             repositoryName
         );
 
-        core.setOutput('issue-id', issueId.toString());
+        core.setOutput('issue_id', issueId.toString());
     }
     catch (error) {
         core.setFailed(error.message);

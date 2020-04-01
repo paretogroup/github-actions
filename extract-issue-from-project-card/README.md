@@ -8,20 +8,20 @@ This action extracts the issue id from a project card content url obtained by it
 
 **Required** The token.
 
-### `project-card-id`
+### `project_card_id`
 
 **Required** The project card id.
 
-### `organization-name`
+### `organization_name`
 
 **Required** The organization name.
 
-### `repository-name`
+### `repository_name`
 
 **Required** The repository name.
 
 ## Outputs
 
-### `issue-id`
+### `issue_id`
 
 The issue id.

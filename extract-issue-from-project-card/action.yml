@@ -6,18 +6,18 @@ inputs:
   token:
     description: 'The token'
     required: true
-  project-card-id:
+  project_card_id:
     description: 'The project card id'
     required: true
-  organization-name:
+  organization_name:
     description: 'The organization name'
     required: true
-  repository-name:
+  repository_name:
     description: 'The repository name'
     required: true
 
 outputs:
-  issue-id:
+  issue_id:
     description: 'The issue id'
 
 runs:
