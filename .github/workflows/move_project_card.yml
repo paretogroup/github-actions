@@ -24,7 +24,7 @@ jobs:
         id: get_column_name
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-        column_id: ${{ github.event.project_card.column_id }}
+          column_id: ${{ github.event.project_card.column_id }}
 
       - uses: paretogroup/github-actions/remove-column-labels-from-issue@master
         with:
