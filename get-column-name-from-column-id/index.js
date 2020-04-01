@@ -9,7 +9,7 @@ async function run() {
         const client = new github.GitHub(token);
         const column = await client.projects.getColumn({ column_id: parseInt(columnId) });
 
-        console.log(column.name);
+        console.log(column);
         core.setOutput('column_name', column.name);
     }
     catch (error) {

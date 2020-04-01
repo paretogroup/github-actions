@@ -32,7 +32,6 @@ async function run() {
             repositoryName
         );
 
-        console.log(issueId);
         core.setOutput('issue_id', issueId.toString());
     }
     catch (error) {
