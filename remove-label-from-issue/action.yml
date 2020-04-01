@@ -1,0 +1,24 @@
+name: 'Remove label from issue'
+
+description: 'Removes a label from an issue'
+
+inputs:
+  token:
+    description: 'The token'
+    required: true
+  issue-id:
+    description: 'The issue id'
+    required: true
+  organization-name:
+    description: 'The organization name'
+    required: true
+  repository-name:
+    description: 'The repository name'
+    required: true
+  label:
+    description: 'The label to be removed'
+    required: true
+
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
