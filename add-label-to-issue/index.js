@@ -13,7 +13,7 @@ function getAllColumnLabelNames(client, owner, repo){
 }
 
 async function addLabelToIssue(client, owner, repo, issueId, label, allColumnLabels) {
-    const [newLabel] = allColumnLabels.filter(columnLabel => columnLabel === titleCase(label));
+    const [newLabel] = allColumnLabels.filter(columnLabel => titleCase(columnLabel) === titleCase(label));
 
     if (newLabel) {
         await client.issues.addLabels({
