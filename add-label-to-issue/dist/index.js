@@ -1125,9 +1125,8 @@ function titleCase(name) {
 }
 
 function getAllColumnLabelNames(client, owner, repo){
-    return (
-        client.issues.listLabelsForRepo({ owner, repo })
-    ).data.map(label => label.name);
+    return client.issues.listLabelsForRepo({ owner, repo })
+        .then( response => response.data.map(label => label.name))
 }
 
 async function addLabelToIssue(client, owner, repo, issueId, label, allColumnLabels) {
