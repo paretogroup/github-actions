@@ -1,0 +1,25 @@
+name: 'Extract issue from project card'
+
+description: 'Extracts the issue id from project card id'
+
+inputs:
+  token:
+    description: 'The token'
+    required: true
+  project-card-id:
+    description: 'The project card id'
+    required: true
+  organization-name:
+    description: 'The organization name'
+    required: true
+  repository-name:
+    description: 'The repository name'
+    required: true
+
+outputs:
+  issue-id:
+    description: 'The issue id'
+
+runs:
+  using: 'node12'
+  main: 'index.js'

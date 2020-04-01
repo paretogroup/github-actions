@@ -1,0 +1,23 @@
+{
+  "name": "github-actions",
+  "version": "1.0.0",
+  "description": "Uma integração do ProductBoard com o GitHub que adiciona issues em um repositório para cada funcionalidade do ProductBoard e permite sincronizar os estados das entregas através de labels do github.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paretogroup/github-actions.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paretogroup/github-actions/issues"
+  },
+  "homepage": "https://github.com/paretogroup/github-actions#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.3",
+    "@actions/github": "^2.1.1"
+  }
+}
