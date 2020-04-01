@@ -1120,10 +1120,9 @@ const github = __webpack_require__(633);
 
 async function removeAllColumnLabels(client, owner, repo, issue_number) {
 
-    const allColumnLabels = await client.issues.listLabelsForRepo({
-        owner,
-        repo
-    }).data;
+    const allColumnLabels = (
+        await client.issues.listLabelsForRepo({ owner, repo })
+    ).data;
 
     return Promise.all(
         allColumnLabels.map((label) => {
