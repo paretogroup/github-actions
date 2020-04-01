@@ -1118,6 +1118,37 @@ function whichSync (cmd, opt) {
 const core = __webpack_require__(973);
 const github = __webpack_require__(633);
 
+function titleCase(name) {
+    const words = name.split(' ');
+    const upperCasedWords = words.map(word => word.charAt(0).toUpperCase() + word.substring(1));
+    return upperCasedWords.join(' ');
+}
+
+function getAllColumnLabelNames(client, owner, repo){
+    return client.issues.listLabelsForRepo({
+        owner,
+        repo
+    }).map(label => label.name);
+}
+
+async function addLabelToIssue(client, owner, repo, issueId, label, allColumnLabels) {
+    const [newLabel] = allColumnLabels.filter(columnLabel => columnLabel === titleCase(label));
+
+    if (newLabel) {
+        await client.issues.addLabels({
+            owner,
+            repo,
+            issue_number: issueId,
+            labels: [newLabel]
+        });
+        return true;
+    }
+    else {
+        return false;
+    }
+
+}
+
 async function run() {
     try {
         const token = core.getInput('token', { required: true });
@@ -1128,14 +1159,18 @@ async function run() {
 
         const client = new github.GitHub(token);
 
-        await client.issues.addLabels({
-            owner: organizationName,
-            repo: repositoryName,
-            issue_number: issueId,
-            labels: [label]
-        });
+        const allColumnLabels = await getAllColumnLabelNames(client, organizationName, repositoryName);
 
-        core.info(`Added label "${label}" to issue #${issueId} in repository ${organizationName}/${repositoryName}.`);
+        const result = await addLabelToIssue(client, organizationName, repositoryName, issueId, label, allColumnLabels);
+
+        if (result){
+            core.info(
+                `Added label "${label}" to issue #${issueId} in repository ${organizationName}/${repositoryName}.`
+            );
+        } else {
+            core.info(`Failed to add label "${label}" because it is not on allowed: ${allColumnLabels.join(", ")}`)
+        }
+
     }
     catch (error) {
         core.setFailed(error.message);

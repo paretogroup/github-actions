@@ -1118,21 +1118,20 @@ function whichSync (cmd, opt) {
 const core = __webpack_require__(973);
 const github = __webpack_require__(633);
 
-const columnLabels = [
-    'To Do',
-    'In Progress',
-    'PR Review',
-    'Released'
-];
-
 async function removeAllColumnLabels(client, owner, repo, issue_number) {
+
+    const allColumnLabels = await client.issues.listLabelsForRepo({
+        owner,
+        repo
+    });
+
     return Promise.all(
-        columnLabels.map((name) => {
+        allColumnLabels.map((label) => {
             client.issues.removeLabel({
                 owner,
                 repo,
                 issue_number,
-                name
+                name: label.name
             });
         })
     )
