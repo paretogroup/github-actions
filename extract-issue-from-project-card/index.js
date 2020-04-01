@@ -24,7 +24,7 @@ async function run() {
         const repositoryName = core.getInput('repository_name',  { required: true });
 
         const client = new github.GitHub(token);
-        const card = await client.projects.getCard({ card_id: cardId.toString() });
+        const card = await client.projects.getCard({ card_id: parseInt(cardId) });
 
         const issueId = extractIssueIdFromCardContentUrl(
             card.data.content_url,
