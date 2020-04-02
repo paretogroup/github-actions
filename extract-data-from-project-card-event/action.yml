@@ -1,6 +1,6 @@
-name: 'Extract issue from project card'
+name: 'Extract data from project card event'
 
-description: 'Extracts the issue id from project card id'
+description: 'Extracts the necessary data from the project card event'
 
 inputs:
   token:
@@ -8,6 +8,12 @@ inputs:
     required: true
   project_card_id:
     description: 'The project card id'
+    required: true
+  project_url:
+    description: 'The project url'
+    required: true
+  column_id:
+    description: 'The column id'
     required: true
   organization_name:
     description: 'The organization name'
@@ -19,6 +25,10 @@ inputs:
 outputs:
   issue_id:
     description: 'The issue id'
+  all_column_names:
+    description: 'All the columns name'
+  column_name:
+    description: 'The column name'
 
 runs:
   using: 'node12'

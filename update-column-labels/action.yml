@@ -1,6 +1,6 @@
-name: 'Add label to issue'
+name: 'Update column labels'
 
-description: 'Adds a label to an issue'
+description: 'Updates the column label of an issue'
 
 inputs:
   token:
@@ -9,14 +9,17 @@ inputs:
   issue_id:
     description: 'The issue id'
     required: true
+  all_column_names:
+    description: 'All the columns name'
+    required: true
+  column_name:
+    description: 'The column name'
+    required: true
   organization_name:
     description: 'The organization name'
     required: true
   repository_name:
     description: 'The repository name'
-    required: true
-  label:
-    description: 'The label to be added'
     required: true
 
 runs:

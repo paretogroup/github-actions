@@ -1,6 +1,6 @@
-# Add label to issue
+# Update column labels
 
-Adds a specific label to a given issue
+Updates the column label of an issue
 
 ## Inputs
 
@@ -12,6 +12,14 @@ Adds a specific label to a given issue
 
 **Required** The issue id.
 
+### `all_column_names`
+
+**Required** All the columns name.
+
+### `column_name`
+
+**Required** The column name.
+
 ### `organization_name`
 
 **Required** The organization name.
@@ -19,7 +27,3 @@ Adds a specific label to a given issue
 ### `repository_name`
 
 **Required** The repository name.
-
-### `label`
-
-**Required** The label to be added.

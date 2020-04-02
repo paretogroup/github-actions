@@ -10,33 +10,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      # Output: issue_id
-      - uses: paretogroup/github-actions/extract-issue-from-project-card@master
-        id: extract_issue
+      # Output: issue_id, all_column_names, column_name
+      - uses: paretogroup/github-actions/extract-data-from-project-card-event@master
+        id: extract_data
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           project_card_id: ${{ github.event.project_card.id }}
-          organization_name: ${{ github.event.repository.owner.login}}
-          repository_name: ${{ github.event.repository.name }}
-
-      # Output: column_name
-      - uses: paretogroup/github-actions/get-column-name-from-column-id@master
-        id: get_column_name
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          project_url: ${{ github.event.project_card.project_url }}
           column_id: ${{ github.event.project_card.column_id }}
-
-      - uses: paretogroup/github-actions/remove-column-labels-from-issue@master
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          issue_id: ${{ steps.extract_issue.outputs.issue_id }}
           organization_name: ${{ github.event.repository.owner.login}}
           repository_name: ${{ github.event.repository.name }}
 
-      - uses: paretogroup/github-actions/add-label-to-issue@master
+      - uses: paretogroup/github-actions/update-column-labels@master
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          issue_id: ${{ steps.extract_issue.outputs.issue_id }}
+          issue_id: ${{ steps.extract_data.outputs.issue_id }}
+          all_column_names: ${{ steps.extract_data.outputs.issue_id }}
+          column_name: ${{ steps.extract_data.outputs.column_name }}
           organization_name: ${{ github.event.repository.owner.login}}
           repository_name: ${{ github.event.repository.name }}
-          label: ${{ steps.get_column_name.outputs.column_name }}
