@@ -1168,7 +1168,6 @@ async function setIssueIdOutput(client) {
 
     const issueId = await getIssueId(client, cardId, organizationName, repositoryName);
 
-    console.log(`issue_id: ${issueId}`);
     core.setOutput('issue_id', issueId);
 }
 
@@ -1177,7 +1176,6 @@ async function setColumnNameOutput(client) {
 
     const columnName = await getColumnName(client, columnId);
 
-    console.log(`column_name: ${columnName}`);
     core.setOutput('column_name', columnName);
 }
 
@@ -1186,7 +1184,6 @@ async function setAllColumnNamesOutput(client) {
 
     const allColumnNames = await getAllColumnNames(client, projectURL);
 
-    console.log(`all_column_names: ${allColumnNames}`);
     core.setOutput('all_column_names', allColumnNames);
 }
 
