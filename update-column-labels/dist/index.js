@@ -1135,7 +1135,7 @@ async function removeAllColumnLabels(client, owner, repo, issue_number, allColum
     )
 }
 
-async function addColumnLabel(client, owner, repo, issue_number, allColumnNames, columnName) {
+async function addColumnLabel(client, owner, repo, issue_number, columnName) {
     await client.issues.addLabels({
         owner,
         repo,
@@ -1153,14 +1153,21 @@ async function run() {
         const token = core.getInput('token', { required: true });
         const organizationName = core.getInput('organization_name',  { required: true });
         const repositoryName = core.getInput('repository_name',  { required: true });
+
         const issueId = core.getInput('issue_id',  { required: true });
-        const allColumnNames = core.getInput('all_column_names',  { required: true }).split(",");
+        console.log(`issue_id: ${issueId}`);
+
+        const allColumnNamesString = core.getInput('all_column_names',  { required: true });
+        console.log(`all_column_names: ${allColumnNamesString}`);
+
+        const allColumnNames = allColumnNamesString.split(",");
         const columnName = core.getInput('column_name',  { required: true });
+        console.log(`column_name: ${columnName}`);
 
         const client = new github.GitHub(token);
 
         await removeAllColumnLabels(client, organizationName, repositoryName, issueId, allColumnNames);
-        await addColumnLabel(client, organizationName, repositoryName, issueId, allColumnNames, columnName);
+        await addColumnLabel(client, organizationName, repositoryName, issueId, columnName);
     }
     catch (error) {
         core.setFailed(error.message);
