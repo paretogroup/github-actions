@@ -10,8 +10,8 @@ function titleCase(name) {
 async function removeAllColumnLabels(client, owner, repo, issue_number, allColumnNames) {
     core.info(`Removing former column label from issue #${issue_number} in repository ${owner}/${repo}.`);
     return Promise.all(
-        allColumnNames.map(label => {
-            client.issues.removeLabel({ owner, repo, issue_number, name: label.name });
+        allColumnNames.map(name => {
+            client.issues.removeLabel({ owner, repo, issue_number, name });
         })
     )
 }
