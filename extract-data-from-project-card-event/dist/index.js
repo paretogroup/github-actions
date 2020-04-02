@@ -1125,7 +1125,8 @@ function extractIssueIdFromCard(card, organizationName, repositoryName) {
     const match = contentUrl.match(regex);
 
 	if (!match) {
-		throw new Error('Failed to get issue id');
+	    core.setFailed('Failed to get issue id: Probably not an issue');
+		throw new Error('Failed to get issue id: Probably not an issue');
 	}
 
     return parseInt(match[1], 10);
@@ -1135,7 +1136,7 @@ function extractProjectIdFromProjectUrl(projectUrl) {
     const match = projectUrl.match(/projects\/(\d+)$/);
 
     if (!match) {
-        throw new Error('Failed to get issue id');
+        throw new Error('Failed to get project id');
     }
 
     return parseInt(match[1], 10);
