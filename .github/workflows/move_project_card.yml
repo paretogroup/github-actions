@@ -2,7 +2,7 @@ on:
   project_card:
     types: [moved, created]
 
-name: Project Card ${{ github.event.project_card.note }} Moved or Created
+name: Project Card Moved or Created
 
 jobs:
   triage:
