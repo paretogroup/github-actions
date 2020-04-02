@@ -25,10 +25,10 @@ inputs:
 outputs:
   issue_id:
     description: 'The issue id'
-  all_column_names:
-    description: 'All the columns name'
   column_name:
     description: 'The column name'
+  all_column_names:
+    description: 'All the columns name'
 
 runs:
   using: 'node12'

@@ -25,7 +25,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           issue_id: ${{ steps.extract_data.outputs.issue_id }}
-          all_column_names: ${{ steps.extract_data.outputs.issue_id }}
+          all_column_names: ${{ steps.extract_data.outputs.all_column_names }}
           column_name: ${{ steps.extract_data.outputs.column_name }}
           organization_name: ${{ github.event.repository.owner.login}}
           repository_name: ${{ github.event.repository.name }}
