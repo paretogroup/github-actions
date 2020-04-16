@@ -1,0 +1,6 @@
+name: 'Rebase PRs adding rebase label'
+description: 'Try to rebase PRs with destination branch by selecting rebase label'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
