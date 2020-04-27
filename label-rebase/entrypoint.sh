@@ -15,8 +15,7 @@ AUTH_HEADER="Authorization: token $GITHUB_TOKEN"
 set_commit_info() {
 	USER_LOGIN=$1
 	HEAD_REPO=$2	
-	USER_TOKEN=${USER_LOGIN}_TOKEN
-	COMMITTER_TOKEN=${!USER_TOKEN:-$GITHUB_TOKEN}
+	COMMITTER_TOKEN=$GITHUB_TOKEN
 
 	user_resp=$(curl -X GET -s -H "${AUTH_HEADER}" -H "${API_HEADER}" \
             "${URI}/users/${USER_LOGIN}")
